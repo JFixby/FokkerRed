@@ -66,8 +66,6 @@ public class FokkerUnitsMachine implements UnitsMachineComponent, UnitsMachineEx
 
 		SysExecutor.onSystemStart();
 
-		PackageLoaders.deploy();
-
 // RenderMachine.init();
 
 		final ID starter = RedTriplane.getGameStarter();
