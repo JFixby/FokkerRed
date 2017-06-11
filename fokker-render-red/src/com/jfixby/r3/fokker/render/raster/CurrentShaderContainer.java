@@ -56,7 +56,7 @@ public class CurrentShaderContainer {
 // this.shader.setIntParameterValue(FOKKER_SHADER_PARAMS.U_TEXTURE_0_CURRENT.name, 0);
 // this.shader.setIntParameterValue(FOKKER_SHADER_PARAMS.U_TEXTURE_1_ORIGINAL.name, 1);
 // this.shader.setIntParameterValue(FOKKER_SHADER_PARAMS.U_TEXTURE_2_ALPHA.name, 2);
-		this.fokker_shader.applyParameters(params);
+		this.fokker_shader.applySettings(params);
 		this.fokker_shader.setOpacity(opacity);
 	}
 
