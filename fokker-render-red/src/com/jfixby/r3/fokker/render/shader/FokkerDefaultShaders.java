@@ -60,7 +60,9 @@ public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 			Err.reportError("Asset<" + name + "> not found.");
 		}
 		final ShaderAsset asset = (ShaderAsset)asset_handler.asset();
-		return new RedFokkerShader(asset_handler.ID(), asset, consumer);
+// return new RedFokkerShader(asset_handler.ID(), asset, consumer);
+		Err.throwNotImplementedYet();
+		return null;
 	}
 
 	static Shader GDX_DEFAULT = null;

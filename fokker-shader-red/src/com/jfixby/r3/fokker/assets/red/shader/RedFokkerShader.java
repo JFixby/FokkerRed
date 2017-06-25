@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.render.shader;
+package com.jfixby.r3.fokker.assets.red.shader;
 
 import com.jfixby.r3.fokker.api.Shader;
 import com.jfixby.r3.fokker.api.ShaderProperties;
@@ -26,12 +26,11 @@ public class RedFokkerShader implements Shader, FokkerShader {
 	private String vertex_source_code;
 	private String fragment_source_code;
 	private ShaderAsset asset;
-
+	private final FokkerShaderProperties properties = new FokkerShaderProperties(this);
 	private final Map<String, FloatValue> float_param_values = Collections.newMap();
 	private final Map<String, Int> int_param_values = Collections.newMap();
 	private final com.badlogic.gdx.graphics.glutils.ShaderProgram gdx_shader_program;
 	private Rectangle shape;
-	private final FokkerShaderProperties properties = new FokkerShaderProperties(this);
 
 	private RedFokkerShader () {
 		this.gdx_shader_program = null;

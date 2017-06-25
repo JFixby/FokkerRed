@@ -3,6 +3,8 @@ package com.jfixby.r3.fokker.assets.red.shader;
 
 import java.io.IOException;
 
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.FragmentProgram;
 import com.jfixby.r3.fokker.assets.api.shader.ShaderParameter;
@@ -11,7 +13,6 @@ import com.jfixby.r3.fokker.assets.api.shader.io.R3_SHADER_SETTINGS;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderParameterInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShadersContainer;
-import com.jfixby.r3.fokker.render.shader.RedShaderProgram;
 import com.jfixby.rana.api.Asset;
 import com.jfixby.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;
@@ -58,17 +59,14 @@ public class ShaderEntry implements Asset, FokkerShader {
 		return this.asset_id;
 	}
 
-	@Override
 	public VertexProgram getVertexProgram () {
 		return this.vertex_program;
 	}
 
-	@Override
 	public FragmentProgram getFragmentProgram () {
 		return this.fragment_program;
 	}
 
-	@Override
 	public Map<String, ShaderParameter> listParameters () {
 		return this.params;
 	}
@@ -82,6 +80,21 @@ public class ShaderEntry implements Asset, FokkerShader {
 	@Override
 	public boolean isOverlay () {
 		return this.shader.isOverlay;
+	}
+
+	@Override
+	public ShaderProgram getGdxShaderProgram () {
+		return null;
+	}
+
+	@Override
+	public void applyParameters (final ShaderSettings params) {
+		Err.throwNotImplementedYet();
+	}
+
+	@Override
+	public void setOpacity (final double opacity) {
+		Err.throwNotImplementedYet();
 	}
 
 }

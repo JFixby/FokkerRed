@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.render.shader;
+package com.jfixby.r3.fokker.assets.red.shader;
 
 import com.jfixby.r3.fokker.api.ShaderProperties;
 import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
