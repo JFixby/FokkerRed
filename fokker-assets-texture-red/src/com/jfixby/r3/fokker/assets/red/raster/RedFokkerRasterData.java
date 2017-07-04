@@ -1,12 +1,12 @@
 
 package com.jfixby.r3.fokker.assets.red.raster;
 
-import com.jfixby.r3.fokker.assets.api.raster.FokkerRasterData;
+import com.jfixby.r3.fokker.assets.api.raster.FokkerRasterHandler;
 import com.jfixby.rana.api.Asset;
 import com.jfixby.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;
 
-public class RedFokkerRasterData implements FokkerRasterData, Asset {
+public class RedFokkerRasterData implements FokkerRasterHandler, Asset {
 
 	private final ID asset_id;
 	private final com.badlogic.gdx.graphics.g2d.Sprite gdx_sprite;
