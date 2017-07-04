@@ -11,12 +11,14 @@ import com.jfixby.scarabei.api.collections.Collection;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.List;
 
-public class RedFokkerShaderPackageReader implements PackageReader {
+public class RedFokkerShaderPackageReader implements PackageReader, FokkerShaderPackageReader {
 
 	final List<PackageFormat> acceptablePackageFormats;
+	private final RedFokkerShaders redFokkerShaders;
 
-	public RedFokkerShaderPackageReader () {
-		this.acceptablePackageFormats = Collections.newList(new PackageFormat(FokkerShaderPackageReader.PACKAGE_FORMAT_SHADER));
+	public RedFokkerShaderPackageReader (final RedFokkerShaders redFokkerShaders) {
+		this.redFokkerShaders = redFokkerShaders;
+		this.acceptablePackageFormats = Collections.newList(new PackageFormat(FokkerShaderPackageReader.PACKAGE_FORMAT));
 	}
 
 	@Override
@@ -26,11 +28,12 @@ public class RedFokkerShaderPackageReader implements PackageReader {
 
 	@Override
 	public void doReadPackage (final PackageReaderInput input) throws IOException {
-// final PackageHandler handler = input.getPackageHandler();
-// listener.onDependenciesRequired(handler, handler.listDependencies());
+		final ShadersGroup group = new ShadersGroup(input, this.redFokkerShaders);
+	}
 
-		final ShadersGroup group = new ShadersGroup(input);
-
+	@Override
+	public PackageReader reader () {
+		return this;
 	}
 
 }

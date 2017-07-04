@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.jfixby.r3.api.shader.FragmentProgram;
 import com.jfixby.r3.api.shader.ShaderParameter;
 import com.jfixby.r3.api.shader.VertexProgram;
-import com.jfixby.r3.fokker.assets.api.shader.FokkerShaderHandler;
+import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.io.R3_SHADER_SETTINGS;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderParameterInfo;
@@ -19,7 +19,7 @@ import com.jfixby.scarabei.api.collections.Map;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.file.File;
 
-public class ShaderEntry implements Asset, FokkerShaderHandler {
+public class ShaderEntry implements Asset, FokkerShader {
 	ID asset_id;
 	ShaderInfo shader;
 	File shader_folder;

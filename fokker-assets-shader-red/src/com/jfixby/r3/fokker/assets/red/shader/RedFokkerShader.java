@@ -6,7 +6,7 @@ import com.jfixby.r3.api.shader.Shader;
 import com.jfixby.r3.api.shader.ShaderAsset;
 import com.jfixby.r3.api.shader.ShaderParameter;
 import com.jfixby.r3.api.shader.VertexProgram;
-import com.jfixby.r3.fokker.assets.api.shader.FokkerShaderHandler;
+import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
@@ -17,7 +17,7 @@ import com.jfixby.scarabei.api.java.FloatValue;
 import com.jfixby.scarabei.api.java.Int;
 import com.jfixby.scarabei.api.log.L;
 
-public class RedFokkerShader implements Shader, FokkerShaderHandler {
+public class RedFokkerShader implements Shader, FokkerShader {
 
 	private VertexProgram vertex;
 	private FragmentProgram fragment;

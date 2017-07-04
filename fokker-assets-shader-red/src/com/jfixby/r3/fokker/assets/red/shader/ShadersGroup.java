@@ -14,7 +14,7 @@ import com.jfixby.scarabei.api.io.IO;
 
 public class ShadersGroup {
 
-	public ShadersGroup (final PackageReaderInput input) throws IOException {
+	public ShadersGroup (final PackageReaderInput input, final RedFokkerShaders redFokkerShaders) throws IOException {
 		final File package_root_file = input.packageRootFile;
 // final PackageHandler handler = input.getPackageHandler();
 		final AssetsContainer container = input.assetsContainer;
@@ -27,6 +27,7 @@ public class ShadersGroup {
 			final File shader_folder = file.parent().child(shader_folder_name);
 			final ShaderEntry entry = new ShaderEntry(asset_id, shader, shader_folder, file_container);
 			container.addAsset(asset_id, entry);
+			redFokkerShaders.register(asset_id, entry);
 		}
 	}
 
