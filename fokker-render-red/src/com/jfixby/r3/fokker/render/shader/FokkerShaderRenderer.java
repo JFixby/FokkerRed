@@ -2,9 +2,9 @@
 package com.jfixby.r3.fokker.render.shader;
 
 import com.jfixby.r3.fokker.api.FOKKER_SYSTEM_ASSETS;
+import com.jfixby.r3.fokker.api.ShaderParameters;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShaders;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
-import com.jfixby.r3.fokker.assets.api.shader.ShaderParameters;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.geometry.Geometry;

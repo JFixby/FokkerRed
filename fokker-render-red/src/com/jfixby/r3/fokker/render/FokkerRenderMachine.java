@@ -7,7 +7,7 @@ import com.jfixby.r3.fokker.api.FokkerDrawable;
 import com.jfixby.r3.fokker.api.FokkerEngineParams.Assets;
 import com.jfixby.r3.fokker.api.FokkerString;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
-import com.jfixby.r3.fokker.assets.api.shader.ShaderParameters;
+import com.jfixby.r3.fokker.api.ShaderParameters;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
 import com.jfixby.r3.fokker.render.shader.FokkerShaderRenderer;
