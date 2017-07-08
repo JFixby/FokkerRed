@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.core.font;
+package com.jfixby.r3.fokker.assets.red.font.gdx;
 
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;

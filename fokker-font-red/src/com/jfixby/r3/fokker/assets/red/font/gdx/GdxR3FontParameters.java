@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.core.font;
+package com.jfixby.r3.fokker.assets.red.font.gdx;
 
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.log.L;
