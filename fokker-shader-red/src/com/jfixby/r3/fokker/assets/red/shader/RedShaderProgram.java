@@ -3,9 +3,9 @@ package com.jfixby.r3.fokker.assets.red.shader;
 
 import java.io.IOException;
 
-import com.jfixby.r3.api.shader.FragmentProgram;
-import com.jfixby.r3.api.shader.ShaderProgram;
-import com.jfixby.r3.api.shader.VertexProgram;
+import com.jfixby.r3.fokker.assets.api.shader.FragmentProgram;
+import com.jfixby.r3.fokker.assets.api.shader.ShaderProgram;
+import com.jfixby.r3.fokker.assets.api.shader.VertexProgram;
 import com.jfixby.scarabei.api.file.File;
 
 public class RedShaderProgram implements VertexProgram, FragmentProgram, ShaderProgram {

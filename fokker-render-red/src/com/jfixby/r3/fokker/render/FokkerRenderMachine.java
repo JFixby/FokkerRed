@@ -29,7 +29,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	//
 
 	public FokkerRenderMachine () {
-
+		this.init();
 	}
 
 	static Color CLEAR_SCREEN_COLOR;
@@ -52,8 +52,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	private final FokkerDefaultAssets defaultAssets = new FokkerDefaultAssets();
 
-	@Override
-	final public void init () {
+	final private void init () {
 		render_state = JUtils.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
 
 		// L.d("init()", render_state);

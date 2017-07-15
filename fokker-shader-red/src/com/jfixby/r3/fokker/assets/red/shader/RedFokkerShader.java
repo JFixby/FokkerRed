@@ -1,12 +1,12 @@
 
 package com.jfixby.r3.fokker.assets.red.shader;
 
-import com.jfixby.r3.api.shader.FragmentProgram;
-import com.jfixby.r3.api.shader.Shader;
-import com.jfixby.r3.api.shader.ShaderAsset;
-import com.jfixby.r3.api.shader.ShaderParameter;
-import com.jfixby.r3.api.shader.VertexProgram;
+import com.badlogic.gdx.graphics.g3d.Shader;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
+import com.jfixby.r3.fokker.assets.api.shader.FragmentProgram;
+import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
+import com.jfixby.r3.fokker.assets.api.shader.ShaderParameter;
+import com.jfixby.r3.fokker.assets.api.shader.VertexProgram;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;

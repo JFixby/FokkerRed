@@ -1,11 +1,11 @@
 
 package com.jfixby.r3.fokker.assets.red.shader;
 
-import com.jfixby.r3.api.shader.PhotoshopShaders;
+import com.badlogic.gdx.graphics.g3d.Shader;
 import com.jfixby.r3.api.shader.R3ShaderComponent;
-import com.jfixby.r3.api.shader.Shader;
-import com.jfixby.r3.api.shader.ShaderAsset;
 import com.jfixby.r3.fokker.api.FOKKER_SYSTEM_ASSETS;
+import com.jfixby.r3.fokker.assets.api.shader.PhotoshopShaders;
+import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
 import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.rana.api.asset.LoadedAssets;

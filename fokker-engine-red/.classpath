@@ -11,5 +11,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-package-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/r3-engine-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fokker-engine-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

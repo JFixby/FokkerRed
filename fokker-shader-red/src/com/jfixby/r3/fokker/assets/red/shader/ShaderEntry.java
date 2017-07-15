@@ -3,10 +3,10 @@ package com.jfixby.r3.fokker.assets.red.shader;
 
 import java.io.IOException;
 
-import com.jfixby.r3.api.shader.FragmentProgram;
-import com.jfixby.r3.api.shader.ShaderParameter;
-import com.jfixby.r3.api.shader.VertexProgram;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
+import com.jfixby.r3.fokker.assets.api.shader.FragmentProgram;
+import com.jfixby.r3.fokker.assets.api.shader.ShaderParameter;
+import com.jfixby.r3.fokker.assets.api.shader.VertexProgram;
 import com.jfixby.r3.fokker.assets.api.shader.io.R3_SHADER_SETTINGS;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderParameterInfo;

@@ -1,14 +1,13 @@
 
 package com.jfixby.r3.fokker;
 
+import com.jfixby.r3.api.EngineState;
 import com.jfixby.r3.api.RedTriplane;
 import com.jfixby.r3.api.ui.unit.Intent;
 import com.jfixby.r3.api.ui.unit.IntentStack;
 import com.jfixby.r3.api.ui.unit.UnitsMachine;
 import com.jfixby.r3.api.ui.unit.UnitsMachineComponent;
-import com.jfixby.r3.fokker.api.EngineState;
 import com.jfixby.r3.fokker.api.FokkerEngineAssembler;
-import com.jfixby.r3.fokker.api.RenderMachine;
 import com.jfixby.r3.fokker.api.UnitsMachineExecutor;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
@@ -69,7 +68,7 @@ public class FokkerUnitsMachine implements UnitsMachineComponent, UnitsMachineEx
 
 		PackageLoaders.deploy();
 
-		RenderMachine.init();
+// RenderMachine.init();
 
 		final ID starter = RedTriplane.getGameStarter();
 		final Intent intent = UnitsMachine.newIntent(starter);
