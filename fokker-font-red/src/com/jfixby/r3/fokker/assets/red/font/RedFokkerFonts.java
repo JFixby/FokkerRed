@@ -1,30 +1,31 @@
 
 package com.jfixby.r3.fokker.assets.red.font;
 
+import com.jfixby.r3.fokker.api.StringHandler;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFont;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFontPackageReader;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFontsComponent;
+import com.jfixby.r3.fokker.assets.api.font.FokkerString;
 import com.jfixby.scarabei.api.assets.ID;
-import com.jfixby.scarabei.api.collections.Collections;
-import com.jfixby.scarabei.api.collections.Map;
 
 public class RedFokkerFonts implements FokkerFontsComponent {
 
-	final TrueTypeFontFontPackageLoader reader = new TrueTypeFontFontPackageLoader(this);
-	final Map<ID, FokkerFont> registry = Collections.newMap();
-
-	public void register (final ID raster_id, final FokkerFont data) {
-		this.registry.put(raster_id, data);
-	}
+	final FokkerFontRegister fontRegister = new FokkerFontRegister();
+	final FokkerStringRegister stringRegister = new FokkerStringRegister();
 
 	@Override
 	public FokkerFontPackageReader packageReader () {
-		return this.reader;
+		return this.fontRegister.reader;
 	}
 
 	@Override
 	public FokkerFont obtainFont (final ID assetID) {
-		return this.registry.get(assetID);
+		return this.fontRegister.get(assetID);
+	}
+
+	@Override
+	public FokkerString obtainString (final StringHandler stringID) {
+		return this.stringRegister.get(stringID);
 	}
 
 }

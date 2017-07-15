@@ -10,5 +10,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-package-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-manager-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

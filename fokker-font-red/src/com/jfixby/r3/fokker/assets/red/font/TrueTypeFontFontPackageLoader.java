@@ -14,9 +14,9 @@ import com.jfixby.scarabei.api.collections.List;
 public class TrueTypeFontFontPackageLoader implements PackageReader, FokkerFontPackageReader {
 
 	final List<PackageFormat> acceptablePackageFormats;
-	private final RedFokkerFonts redFokkerFonts;
+	private final FokkerFontRegister redFokkerFonts;
 
-	public TrueTypeFontFontPackageLoader (final RedFokkerFonts redFokkerFonts) {
+	public TrueTypeFontFontPackageLoader (final FokkerFontRegister redFokkerFonts) {
 		this.redFokkerFonts = redFokkerFonts;
 		this.acceptablePackageFormats = Collections.newList();
 		final PackageFormat format = new PackageFormat(FokkerFontPackageReader.PACKAGE_FORMAT);

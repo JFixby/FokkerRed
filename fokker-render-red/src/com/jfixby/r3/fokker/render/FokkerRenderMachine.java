@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.fokker.render;
 
-import com.jfixby.r3.fokker.api.FokkerDrawable;
+import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.RENDER_PARAMS;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
 import com.jfixby.r3.fokker.api.ShaderParameters;
@@ -48,7 +48,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	// public final CurrentFokkerShader current_shader = new
 	// CurrentFokkerShader();
 
-	private FokkerDrawable currentComponent;
+	private Drawable currentComponent;
 
 	private final FokkerDefaultAssets defaultAssets = new FokkerDefaultAssets();
 
@@ -116,13 +116,13 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void beginDrawComponent (final FokkerDrawable fokkerDrawable) {
+	final public void beginDrawComponent (final Drawable fokkerDrawable) {
 		expectState(RENDER_MACHINE_STATE.FRAME);
 		this.currentComponent = fokkerDrawable;
 	}
 
 	@Override
-	final public void endDrawComponent (final FokkerDrawable fokkerDrawable) {
+	final public void endDrawComponent (final Drawable fokkerDrawable) {
 		expectState(RENDER_MACHINE_STATE.FRAME);
 		// L.d("endDrawComponent()", render_state);
 		this.currentComponent = null;
