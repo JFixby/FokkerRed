@@ -12,11 +12,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasSprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.NumberUtils;
-import com.jfixby.r3.fokker.api.FokkerString;
 import com.jfixby.r3.fokker.api.Screen;
 import com.jfixby.r3.fokker.api.SpritesRenderer;
-import com.jfixby.r3.fokker.assets.api.raster.FokkerTextures;
+import com.jfixby.r3.fokker.api.StringHandler;
+import com.jfixby.r3.fokker.assets.api.font.FokkerFonts;
+import com.jfixby.r3.fokker.assets.api.font.FokkerString;
 import com.jfixby.r3.fokker.assets.api.raster.FokkerTexture;
+import com.jfixby.r3.fokker.assets.api.raster.FokkerTextures;
 import com.jfixby.r3.fokker.render.GdxRender;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.rana.api.asset.LoadedAssets;
@@ -229,10 +231,11 @@ public class FokkerSpritesRenderer extends SpritesRenderer implements AssetsCons
 
 	}
 
-	final public void drawString (final FokkerString string_value, final CanvasPosition position, final double opacity,
+	final public void drawString (final StringHandler string_value, final CanvasPosition position, final double opacity,
 		final Texture blend_texture) {
 
-		final FokkerString redString = string_value;
+		final FokkerString redString = FokkerFonts.component().obtainString(string_value);
+
 		final Projection camProjection = this.raster_renderer.machine.camera_projection;
 		final Projection layProjection = this.raster_renderer.machine.layer_projection;
 

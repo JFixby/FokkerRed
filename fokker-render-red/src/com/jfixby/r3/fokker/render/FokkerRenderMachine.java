@@ -1,13 +1,12 @@
 
 package com.jfixby.r3.fokker.render;
 
-import com.jfixby.r3.fokker.api.BLEND_MODE;
-import com.jfixby.r3.fokker.api.CameraProjection;
 import com.jfixby.r3.fokker.api.FokkerDrawable;
-import com.jfixby.r3.fokker.api.FokkerEngineParams.Assets;
-import com.jfixby.r3.fokker.api.FokkerString;
+import com.jfixby.r3.fokker.api.RENDER_PARAMS;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
 import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.StringHandler;
+import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
 import com.jfixby.r3.fokker.render.shader.FokkerShaderRenderer;
@@ -51,6 +50,8 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	private FokkerDrawable currentComponent;
 
+	private final FokkerDefaultAssets defaultAssets = new FokkerDefaultAssets();
+
 	@Override
 	final public void init () {
 		render_state = JUtils.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
@@ -59,7 +60,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 		render_state.setDebugName("render_state");
 		render_state.setDebugFlag(!true);
 
-		this.raster_manager = new RedFokkerRasterManager();
+		this.raster_manager = new RedFokkerRasterManager(this);
 		// L.d("init()", raster_manager);
 		// background_color = Colors.BLACK().customize().setBlue(0.4f);
 
@@ -96,9 +97,9 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void setCameraProjection (final CameraProjection camera) {
+	final public void setCameraProjection (final Projection camera) {
 		expectState(RENDER_MACHINE_STATE.FRAME);
-		this.camera_projection = camera.projection();
+		this.camera_projection = camera;
 		if (this.camera_projection == null) {
 			this.camera_projection = Geometry.getProjectionFactory().IDENTITY();
 		}
@@ -153,7 +154,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 
 	static final private void initClearScreenColor () {
 		if (CLEAR_SCREEN_COLOR == null) {
-			final String hexstring = SystemSettings.getStringParameter(Assets.CLEAR_SCREEN_COLOR_ARGB);
+			final String hexstring = SystemSettings.getStringParameter(RENDER_PARAMS.CLEAR_SCREEN_COLOR_ARGB);
 			if (hexstring == null) {
 				// Sys.printSystemParameters();
 				// Sys.exit();
@@ -216,7 +217,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void beginRasterMode (final BLEND_MODE blend_mode, final double opacity) {
+	final public void beginRasterMode (final TEXTURE_BLEND_MODE blend_mode, final double opacity) {
 		Debug.component().checkNull("blend_mode", blend_mode);
 		expectState(RENDER_MACHINE_STATE.FRAME);
 		switchState(RENDER_MACHINE_STATE.RASTER);
@@ -225,7 +226,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void endRasterMode (final BLEND_MODE blend_mode) {
+	final public void endRasterMode (final TEXTURE_BLEND_MODE blend_mode) {
 		Debug.component().checkNull("blend_mode", blend_mode);
 		expectState(RENDER_MACHINE_STATE.RASTER);
 		switchState(RENDER_MACHINE_STATE.FRAME);
@@ -247,7 +248,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void drawString (final FokkerString string_value, final CanvasPosition position) {
+	final public void drawString (final StringHandler string_value, final CanvasPosition position) {
 		expectState(RENDER_MACHINE_STATE.RASTER);
 
 		this.raster_renderer.drawString(string_value, position);
@@ -275,6 +276,11 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 		expectState(RENDER_MACHINE_STATE.SHADER);
 		// switchState(RENDER_MACHINE_STATE.FRAME);
 		this.shader_renderer.applyShader();
+	}
+
+	@Override
+	public FokkerDefaultAssets DefaultAssets () {
+		return this.defaultAssets;
 	}
 
 	// @Override

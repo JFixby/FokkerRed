@@ -23,7 +23,7 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 	}
 
 	@Override
-	public FokkerFont obtain (final ID assetID) {
+	public FokkerFont obtainFont (final ID assetID) {
 		return this.registry.get(assetID);
 	}
 

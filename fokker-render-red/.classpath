@@ -9,5 +9,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/fokker-shader-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/fokker-texture-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rana-manager-api"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

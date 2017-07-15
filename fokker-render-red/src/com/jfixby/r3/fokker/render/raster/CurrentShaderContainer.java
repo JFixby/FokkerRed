@@ -3,8 +3,8 @@ package com.jfixby.r3.fokker.render.raster;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.jfixby.r3.fokker.api.BLEND_MODE;
 import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.render.GdxRender;
 import com.jfixby.scarabei.api.err.Err;
@@ -15,7 +15,7 @@ public class CurrentShaderContainer {
 	// private Texture test_blend_texture;
 	private FokkerShader fokker_shader;
 // private Mapping<String, ShaderParameter> params;
-	private BLEND_MODE current_mode;
+	private TEXTURE_BLEND_MODE current_mode;
 
 	void init () {
 		// File file = LocalFileSystem
@@ -24,7 +24,7 @@ public class CurrentShaderContainer {
 		// test_blend_texture = new Texture(gdx_file);
 	}
 
-	public void setShader (final BLEND_MODE next_blend_mode, final FokkerShader shader, final Texture blend_texture) {
+	public void setShader (final TEXTURE_BLEND_MODE next_blend_mode, final FokkerShader shader, final Texture blend_texture) {
 		this.blend_texture = blend_texture;
 		// this.blend_texture = this.test_blend_texture;
 		this.fokker_shader = shader;
@@ -68,7 +68,7 @@ public class CurrentShaderContainer {
 		return this.blend_texture;
 	}
 
-	public BLEND_MODE getCurrentMode () {
+	public TEXTURE_BLEND_MODE getCurrentMode () {
 		return this.current_mode;
 	}
 
