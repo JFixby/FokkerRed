@@ -2,10 +2,12 @@
 package com.jfixby.r3.fokker.render;
 
 import com.jfixby.r3.fokker.api.Drawable;
+import com.jfixby.r3.fokker.api.FontParameters;
 import com.jfixby.r3.fokker.api.RENDER_PARAMS;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
+import com.jfixby.r3.fokker.api.ScreenShot;
+import com.jfixby.r3.fokker.api.ScreenShotSpecs;
 import com.jfixby.r3.fokker.api.ShaderParameters;
-import com.jfixby.r3.fokker.api.StringHandler;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
@@ -247,10 +249,11 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	final public void drawString (final StringHandler string_value, final CanvasPosition position) {
+	final public void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
+		final CanvasPosition position) {
 		expectState(RENDER_MACHINE_STATE.RASTER);
 
-		this.raster_renderer.drawString(string_value, position);
+		this.raster_renderer.drawString(fontID, fontParams, stringValue, position);
 
 	}
 
@@ -280,6 +283,11 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	public FokkerDefaultAssets DefaultAssets () {
 		return this.defaultAssets;
+	}
+
+	@Override
+	public ScreenShot makeScreenShot (final ScreenShotSpecs specs) {
+		return new FokkerScreenShot(specs);
 	}
 
 	// @Override

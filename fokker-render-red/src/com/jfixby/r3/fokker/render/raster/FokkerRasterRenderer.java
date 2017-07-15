@@ -2,8 +2,8 @@
 package com.jfixby.r3.fokker.render.raster;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.jfixby.r3.fokker.api.FontParameters;
 import com.jfixby.r3.fokker.api.ShaderParameters;
-import com.jfixby.r3.fokker.api.StringHandler;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShaders;
@@ -120,10 +120,12 @@ public class FokkerRasterRenderer extends Renderer {
 		this.sprites_renderer.drawAperture(spriteAssetID, ax, ay, bx, by, this.current_opacity);
 	}
 
-	public final void drawString (final StringHandler string_value, final CanvasPosition shape) {
+	public final void drawString (final ID fontID, final FontParameters fontParams, final String stringValue,
+		final CanvasPosition position) {
 		// blend_state.doesNotExpectState(TEXTURE_BLEND_MODE.NOT_SET);
 		final Texture blend_texture = this.current_shader.getBlendTexture();
-		this.sprites_renderer.drawString(string_value, shape, this.current_opacity, blend_texture);
+		this.sprites_renderer.drawString(fontID, fontParams, stringValue, position, this.current_opacity, blend_texture);
+// sprites_renderer.drawString(string_value, position, opacity, blend_texture);
 	}
 
 	final void loadOverlayShader (final TEXTURE_BLEND_MODE next_blend_mode, final double opacity, final FokkerShader customShader,

@@ -1,7 +1,7 @@
 
 package com.jfixby.r3.fokker.assets.red.font;
 
-import com.jfixby.r3.fokker.api.StringHandler;
+import com.jfixby.r3.fokker.api.FontParameters;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFont;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFontPackageReader;
 import com.jfixby.r3.fokker.assets.api.font.FokkerFontsComponent;
@@ -24,8 +24,8 @@ public class RedFokkerFonts implements FokkerFontsComponent {
 	}
 
 	@Override
-	public FokkerString obtainString (final StringHandler stringID) {
-		return this.stringRegister.get(stringID);
+	public FokkerString obtainString (final ID fontID, final FontParameters fontParams, final String stringValue) {
+		return this.stringRegister.get(fontID, fontParams, stringValue);
 	}
 
 }

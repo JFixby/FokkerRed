@@ -7,16 +7,11 @@ import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
 
-public class FokkerStringRegister {
+public class FokkerStringGroup {
 	final Map<ID, FokkerStringGroup> registry = Collections.newMap();
 
-// public void register (final ID fontID, final FokkerString data) {
-
-// this.registry.put(raster_id, data);
-// }
-
-	public FokkerString get (final ID fontID, final FontParameters fontParams, final String stringValue) {
-		final FokkerStringGroup group = this.registry.get(fontID);
-		return group.resolve(fontParams, stringValue);
+	public FokkerString resolve (final FontParameters fontParams, final String stringValue) {
+		return null;
 	}
+
 }
