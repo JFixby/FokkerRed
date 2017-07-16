@@ -11,6 +11,7 @@ import com.jfixby.r3.fokker.assets.api.shader.io.R3_SHADER_SETTINGS;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShaderParameterInfo;
 import com.jfixby.r3.fokker.assets.api.shader.io.ShadersContainer;
+import com.jfixby.r3.fokker.render.shader.RedShaderProgram;
 import com.jfixby.rana.api.Asset;
 import com.jfixby.rana.api.AssetsGroup;
 import com.jfixby.scarabei.api.assets.ID;

@@ -2,7 +2,7 @@
 package com.jfixby.r3.fokker.render.shader;
 
 import com.jfixby.r3.fokker.api.RenderMachine;
-import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShaders;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
@@ -25,7 +25,7 @@ public class FokkerShaderRenderer {
 		this.fake_asset = RenderMachine.DefaultAssets().RASTER_IS_MISING();
 	}
 
-	public void open (final ID fokkerShader, final ShaderParameters params) {
+	public void open (final ID fokkerShader, final ShaderSettings params) {
 		final Rectangle shape = params.shape();
 		if (shape != null) {
 			this.shape.setup(shape);

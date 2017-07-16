@@ -1,38 +1,29 @@
 
-package com.jfixby.r3.fokker.assets.red.shader;
+package com.jfixby.r3.fokker.render.shader;
 
-import com.badlogic.gdx.graphics.g3d.Shader;
-import com.jfixby.r3.api.shader.R3ShaderComponent;
-import com.jfixby.r3.fokker.api.FOKKER_SYSTEM_ASSETS;
-import com.jfixby.r3.fokker.assets.api.shader.PhotoshopShaders;
+import com.jfixby.r3.fokker.api.DefaultShaders;
+import com.jfixby.r3.fokker.api.Shader;
 import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
+import com.jfixby.r3.fokker.render.FokkerRenderMachine;
 import com.jfixby.rana.api.asset.AssetHandler;
 import com.jfixby.rana.api.asset.AssetsConsumer;
 import com.jfixby.rana.api.asset.LoadedAssets;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.err.Err;
 
-public class R3FokkerShader implements R3ShaderComponent, PhotoshopShaders, AssetsConsumer {
+public class FokkerDefaultShaders implements DefaultShaders, AssetsConsumer {
 
-	@Override
-	public String toString () {
-		return "R3FokkerShader";
-	}
+	private final FokkerRenderMachine fokkerRenderMachine;
 
-	public R3FokkerShader () {
-
-	}
-
-	@Override
-	public PhotoshopShaders PHOTOSHOP () {
-		return this;
+	public FokkerDefaultShaders (final FokkerRenderMachine fokkerRenderMachine) {
+		this.fokkerRenderMachine = fokkerRenderMachine;
 	}
 
 	static Shader TEST = null;
 
 	@Override
 	public Shader TEST () {
-		TEST = resolve(TEST, FOKKER_SYSTEM_ASSETS.SHADER_TEST, this);
+		TEST = resolve(TEST, this.fokkerRenderMachine.DefaultAssets().SHADER_TEST, this);
 		return TEST;
 	}
 
@@ -40,7 +31,7 @@ public class R3FokkerShader implements R3ShaderComponent, PhotoshopShaders, Asse
 
 	@Override
 	public Shader NORMAL () {
-		NORMAL = resolve(NORMAL, FOKKER_SYSTEM_ASSETS.SHADER_NORMAL, this);
+		NORMAL = resolve(NORMAL, this.fokkerRenderMachine.DefaultAssets().SHADER_NORMAL, this);
 		return NORMAL;
 	}
 
@@ -48,7 +39,7 @@ public class R3FokkerShader implements R3ShaderComponent, PhotoshopShaders, Asse
 
 	@Override
 	public Shader MULTIPLY () {
-		MULTIPLY = resolve(MULTIPLY, FOKKER_SYSTEM_ASSETS.SHADER_MULTIPLY, this);
+		MULTIPLY = resolve(MULTIPLY, this.fokkerRenderMachine.DefaultAssets().SHADER_MULTIPLY, this);
 		return MULTIPLY;
 	}
 
@@ -56,7 +47,7 @@ public class R3FokkerShader implements R3ShaderComponent, PhotoshopShaders, Asse
 
 	@Override
 	public Shader GRAYSCALE () {
-		GRAYSCALE = resolve(GRAYSCALE, FOKKER_SYSTEM_ASSETS.SHADER_GRAYSCALE, this);
+		GRAYSCALE = resolve(GRAYSCALE, this.fokkerRenderMachine.DefaultAssets().SHADER_GRAYSCALE, this);
 		return GRAYSCALE;
 	}
 
@@ -69,14 +60,13 @@ public class R3FokkerShader implements R3ShaderComponent, PhotoshopShaders, Asse
 			Err.reportError("Asset<" + name + "> not found.");
 		}
 		final ShaderAsset asset = (ShaderAsset)asset_handler.asset();
-		return new RedFokkerShader(asset, consumer);
+		return new RedFokkerShader(asset_handler.ID(), asset, consumer);
 	}
 
 	static Shader GDX_DEFAULT = null;
 
-	@Override
 	public Shader GDX_DEFAULT () {
-		GDX_DEFAULT = resolve(GDX_DEFAULT, FOKKER_SYSTEM_ASSETS.SHADER_GDX_DEFAULT, this);
+		GDX_DEFAULT = resolve(GDX_DEFAULT, this.fokkerRenderMachine.DefaultAssets().SHADER_GDX_DEFAULT, this);
 		return GDX_DEFAULT;
 	}
 

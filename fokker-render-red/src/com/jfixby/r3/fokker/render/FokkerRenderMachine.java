@@ -1,15 +1,17 @@
 
 package com.jfixby.r3.fokker.render;
 
+import com.jfixby.r3.fokker.api.DefaultShaders;
 import com.jfixby.r3.fokker.api.Drawable;
 import com.jfixby.r3.fokker.api.FontParameters;
 import com.jfixby.r3.fokker.api.RENDER_PARAMS;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
 import com.jfixby.r3.fokker.api.ScreenShot;
-import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
 import com.jfixby.r3.fokker.render.raster.FokkerRasterRenderer;
+import com.jfixby.r3.fokker.render.shader.FokkerDefaultShaders;
 import com.jfixby.r3.fokker.render.shader.FokkerShaderRenderer;
 import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.color.Color;
@@ -52,6 +54,8 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	private Drawable currentComponent;
 
 	private final FokkerDefaultAssets defaultAssets = new FokkerDefaultAssets();
+
+	private final FokkerDefaultShaders defaultShaders = new FokkerDefaultShaders(this);
 
 	final private void init () {
 		render_state = JUtils.newStateSwitcher(RENDER_MACHINE_STATE.NEW);
@@ -257,7 +261,7 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	public void beginShaderMode (final ID fokkerShader, final ShaderParameters params) {
+	public void beginShaderMode (final ID fokkerShader, final ShaderSettings params) {
 		Debug.component().checkNull("fokkerShader", fokkerShader);
 		expectState(RENDER_MACHINE_STATE.FRAME);
 		switchState(RENDER_MACHINE_STATE.SHADER);
@@ -287,6 +291,11 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	@Override
 	public ScreenShot makeScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
 		return new FokkerScreenShot(areaWidth, areaHeight, areaX, areaY);
+	}
+
+	@Override
+	public DefaultShaders DefaultShaders () {
+		return this.defaultShaders;
 	}
 
 }

@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.render.raster;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.jfixby.r3.fokker.api.FontParameters;
-import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShaders;
@@ -58,7 +58,7 @@ public class FokkerRasterRenderer extends Renderer {
 	boolean shaderIsOverlay = false;
 
 	public void open (final TEXTURE_BLEND_MODE blend_mode, final double opacity, final FokkerShader shader,
-		final ShaderParameters params) {
+		final ShaderSettings params) {
 		this.mode = blend_mode;
 		this.current_opacity = opacity;
 		if (blend_mode == TEXTURE_BLEND_MODE.Normal) {
@@ -129,7 +129,7 @@ public class FokkerRasterRenderer extends Renderer {
 	}
 
 	final void loadOverlayShader (final TEXTURE_BLEND_MODE next_blend_mode, final double opacity, final FokkerShader customShader,
-		final ShaderParameters params) {
+		final ShaderSettings params) {
 		if (this.secondary_buffer == null) {
 			this.secondary_buffer = new SecondaryRenderBuffer();
 		}
@@ -158,7 +158,7 @@ public class FokkerRasterRenderer extends Renderer {
 	}
 
 	final void loadTextureShader (final TEXTURE_BLEND_MODE next_blend_mode, final double opacity, final FokkerShader customShader,
-		final ShaderParameters params) {
+		final ShaderSettings params) {
 		final FokkerShader shader = this.shaderFor(next_blend_mode, customShader);
 		this.current_shader.setShader(next_blend_mode, shader, null);
 

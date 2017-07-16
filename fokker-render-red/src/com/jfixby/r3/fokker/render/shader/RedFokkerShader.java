@@ -1,16 +1,18 @@
 
-package com.jfixby.r3.fokker.assets.red.shader;
+package com.jfixby.r3.fokker.render.shader;
 
-import com.badlogic.gdx.graphics.g3d.Shader;
+import com.jfixby.r3.fokker.api.Shader;
+import com.jfixby.r3.fokker.api.ShaderProperties;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.assets.api.shader.FragmentProgram;
 import com.jfixby.r3.fokker.assets.api.shader.ShaderAsset;
-import com.jfixby.r3.fokker.assets.api.shader.ShaderParameter;
 import com.jfixby.r3.fokker.assets.api.shader.VertexProgram;
 import com.jfixby.rana.api.asset.AssetsConsumer;
+import com.jfixby.scarabei.api.assets.ID;
 import com.jfixby.scarabei.api.collections.Collections;
 import com.jfixby.scarabei.api.collections.Map;
-import com.jfixby.scarabei.api.collections.Mapping;
+import com.jfixby.scarabei.api.debug.Debug;
 import com.jfixby.scarabei.api.err.Err;
 import com.jfixby.scarabei.api.geometry.Rectangle;
 import com.jfixby.scarabei.api.java.FloatValue;
@@ -18,23 +20,25 @@ import com.jfixby.scarabei.api.java.Int;
 import com.jfixby.scarabei.api.log.L;
 
 public class RedFokkerShader implements Shader, FokkerShader {
-
+	ID id;
 	private VertexProgram vertex;
 	private FragmentProgram fragment;
 	private String vertex_source_code;
 	private String fragment_source_code;
 	private ShaderAsset asset;
-	private Mapping<String, ShaderParameter> parameters;
+
 	private final Map<String, FloatValue> float_param_values = Collections.newMap();
 	private final Map<String, Int> int_param_values = Collections.newMap();
 	private final com.badlogic.gdx.graphics.glutils.ShaderProgram gdx_shader_program;
 	private Rectangle shape;
+	private final FokkerShaderProperties properties = new FokkerShaderProperties(this);
 
 	private RedFokkerShader () {
 		this.gdx_shader_program = null;
 	}
 
-	RedFokkerShader (final String vertexProgramRawString, final String fragmentProgramRawString) {
+	RedFokkerShader (final ID id, final String vertexProgramRawString, final String fragmentProgramRawString) {
+		this.id = Debug.checkNull("id", id);
 
 		com.badlogic.gdx.graphics.glutils.ShaderProgram.pedantic = false;
 		this.vertex = new RedShaderProgram(vertexProgramRawString);
@@ -51,13 +55,14 @@ public class RedFokkerShader implements Shader, FokkerShader {
 
 	}
 
-	RedFokkerShader (final ShaderAsset asset, final AssetsConsumer consumer) {
+	RedFokkerShader (final ID id, final ShaderAsset asset, final AssetsConsumer consumer) {
 		this.asset = asset;
+		this.id = Debug.checkNull("id", id);
 
 		com.badlogic.gdx.graphics.glutils.ShaderProgram.pedantic = false;
 		this.vertex = this.asset.getVertexProgram();
 		this.fragment = this.asset.getFragmentProgram();
-		this.parameters = this.asset.listParameters();
+		this.properties.set(asset);
 
 		this.vertex_source_code = this.vertex.getSourceCode();
 		this.fragment_source_code = this.fragment.getSourceCode();
@@ -74,7 +79,6 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		return this.float_param_values.size() > 0 || this.int_param_values.size() > 0;
 	}
 
-	@Override
 	final public void setFloatParameterValue (final String parameter_name, final double value) {
 		FloatValue float_value = this.float_param_values.get(parameter_name);
 		if (float_value == null) {
@@ -84,7 +88,6 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		float_value.value = value;
 	}
 
-	@Override
 	final public void setIntParameterValue (final String parameter_name, final long value) {
 		Int float_value = this.int_param_values.get(parameter_name);
 		if (float_value == null) {
@@ -94,7 +97,6 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		float_value.value = value;
 	}
 
-	@Override
 	public double getFloatParameterValue (final String parameter_name) {
 		FloatValue float_value = this.float_param_values.get(parameter_name);
 		if (float_value == null) {
@@ -104,7 +106,6 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		return float_value.value;
 	}
 
-	@Override
 	public long getIntParameterValue (final String parameter_name) {
 		Int value = this.int_param_values.get(parameter_name);
 		if (value == null) {
@@ -183,12 +184,6 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		return true;
 	}
 
-	@Override
-	public Mapping<String, ShaderParameter> listParameters () {
-		return this.parameters;
-	}
-
-	@Override
 	public void setupValues () {
 		if (this.gdx_shader_program == null) {
 			return;
@@ -235,13 +230,30 @@ public class RedFokkerShader implements Shader, FokkerShader {
 		return this.asset.isOverlay();
 	}
 
-	@Override
 	public Rectangle shape () {
 		return this.shape;
 	}
 
 	public void setShape (final Rectangle shape) {
 		this.shape = shape;
+	}
+
+	@Override
+	public void applyParameters (final ShaderSettings params) {
+	}
+
+	@Override
+	public void setOpacity (final double opacity) {
+	}
+
+	@Override
+	public ID id () {
+		return this.id;
+	}
+
+	@Override
+	public ShaderProperties properties () {
+		return this.properties;
 	}
 
 }

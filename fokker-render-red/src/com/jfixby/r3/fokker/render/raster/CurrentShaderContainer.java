@@ -3,7 +3,7 @@ package com.jfixby.r3.fokker.render.raster;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.jfixby.r3.fokker.api.ShaderParameters;
+import com.jfixby.r3.fokker.api.ShaderSettings;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.assets.api.shader.FokkerShader;
 import com.jfixby.r3.fokker.render.GdxRender;
@@ -41,7 +41,7 @@ public class CurrentShaderContainer {
 // this.setupShaderValues(1.0f);
 	}
 
-	public void activateShader (final double opacity, final ShaderParameters params) {
+	public void activateShader (final double opacity, final ShaderSettings params) {
 		// params.print("params");
 // Debug.checkTrue("" + this.params, this.params.size() >= 6);
 		this.setupShaderValues(opacity, params);
@@ -49,7 +49,7 @@ public class CurrentShaderContainer {
 
 	}
 
-	private void setupShaderValues (final double opacity, final ShaderParameters params) {
+	private void setupShaderValues (final double opacity, final ShaderSettings params) {
 // this.shader.setFloatParameterValue(FOKKER_SHADER_PARAMS.SCREEN_WIDTH.name, Screen.getScreenWidth());
 // this.shader.setFloatParameterValue(FOKKER_SHADER_PARAMS.SCREEN_HEIGHT.name, Screen.getScreenHeight());
 // this.shader.setFloatParameterValue(FOKKER_SHADER_PARAMS.ALPHA_BLEND.name, opacity);

@@ -1,5 +1,5 @@
 
-package com.jfixby.r3.fokker.assets.red.shader;
+package com.jfixby.r3.fokker.render.shader;
 
 import java.io.IOException;
 
