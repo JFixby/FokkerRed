@@ -6,7 +6,6 @@ import com.jfixby.r3.fokker.api.FontParameters;
 import com.jfixby.r3.fokker.api.RENDER_PARAMS;
 import com.jfixby.r3.fokker.api.RenderMachineComponent;
 import com.jfixby.r3.fokker.api.ScreenShot;
-import com.jfixby.r3.fokker.api.ScreenShotSpecs;
 import com.jfixby.r3.fokker.api.ShaderParameters;
 import com.jfixby.r3.fokker.api.TEXTURE_BLEND_MODE;
 import com.jfixby.r3.fokker.render.geo.FokkerShapesRenderer;
@@ -286,16 +285,8 @@ public class FokkerRenderMachine implements RenderMachineComponent {
 	}
 
 	@Override
-	public ScreenShot makeScreenShot (final ScreenShotSpecs specs) {
-		return new FokkerScreenShot(specs);
+	public ScreenShot makeScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
+		return new FokkerScreenShot(areaWidth, areaHeight, areaX, areaY);
 	}
-
-	// @Override
-	// final public void setShader(final FokkerShader shader_handler) {
-	// shader_update_needed = this.current_shader.setShader(shader_handler);
-	// if (shader_update_needed && this.raster_renderer.isOpen()) {
-
-	// }
-	// }
 
 }

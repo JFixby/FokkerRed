@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.PixmapIO.PNG;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.jfixby.r3.fokker.api.ScreenShot;
-import com.jfixby.r3.fokker.api.ScreenShotSpecs;
 import com.jfixby.scarabei.api.color.Color;
 import com.jfixby.scarabei.api.color.Colors;
 import com.jfixby.scarabei.api.file.File;
@@ -29,11 +29,11 @@ public class FokkerScreenShot implements ScreenShot {
 
 	private final Pixmap gdx_pixmap;
 
-	public FokkerScreenShot (final ScreenShotSpecs specs) {
-		this.w = specs.areaWidth;
-		this.h = specs.areaHeight;
-		this.x = specs.areaX;
-		this.y = specs.areaY;
+	public FokkerScreenShot (final int areaWidth, final int areaHeight, final int areaX, final int areaY) {
+		this.w = areaWidth < 0 ? Gdx.graphics.getWidth() : areaWidth;
+		this.h = areaHeight < 0 ? Gdx.graphics.getHeight() : areaHeight;
+		this.x = areaX;
+		this.y = areaY;
 		this.gdx_pixmap = getScreenshot(this.x, this.y, this.w, this.h, true);
 	}
 
