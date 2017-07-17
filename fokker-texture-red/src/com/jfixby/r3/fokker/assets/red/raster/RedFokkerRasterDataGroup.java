@@ -167,6 +167,7 @@ public class RedFokkerRasterDataGroup implements AssetsGroup {
 			this.texture.dispose();
 			this.texture = null;
 		}
+		Err.throwNotImplementedYet();// dispose from regisrty?
 	}
 
 }
