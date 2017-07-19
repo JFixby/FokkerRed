@@ -5,7 +5,7 @@ include "fokker-font-red"
 include "fokker-gwt-red"
 include "fokker-ios-red"
 include "fokker-render-red"
-//include "fokker-shader-red"
+include "fokker-shader-red"
 include "fokker-texture-red"
 include "fokker-ui-red"
 
