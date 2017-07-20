@@ -5,13 +5,9 @@
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-engine-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/fokker-engine-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-render-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-ui-api"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/rana-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-asset-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rana-loader-api"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/scarabei-red-gdx"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/r3-ui-red"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
